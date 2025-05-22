@@ -1,0 +1,20 @@
+export type MediaItem = {
+  id: number;
+  title?: string;
+  name?: string;
+  poster_path: string;
+  overview: string;
+  vote_average: number;
+  backdrop_path: string;
+  original_title?: string;
+  original_name?: string;
+  media_type?: string;
+  genres?: { id: number; name: string }[];
+  runtime?: number;
+  episode_run_time?: number[];
+  number_of_seasons?: number;
+  number_of_episodes?: number;
+  first_air_date?: string;
+  release_date?: string;
+  tagline?: string;
+} & Record<string, unknown>;
