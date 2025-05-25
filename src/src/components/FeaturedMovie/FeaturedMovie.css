@@ -1,5 +1,6 @@
 .featured {
-  height: 100vh;
+  height: 70vh;
+  color: #fff;
 }
 .featured--vertical {
   width: inherit;

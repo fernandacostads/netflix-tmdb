@@ -8,8 +8,8 @@ export const FeaturedMovie: React.FC<FeaturedMovieProps> = ({ item }) => {
   const genres = item.genres ? item.genres.map((genre) => genre.name) : [];
 
   let description = item.overview || "";
-  if (description.length > 200) {
-    description = description.substring(0, 200) + "...";
+  if (description.length > 400) {
+    description = description.substring(0, 400) + "...";
   }
 
   return (
@@ -25,7 +25,9 @@ export const FeaturedMovie: React.FC<FeaturedMovieProps> = ({ item }) => {
         <div className="featured--horizontal">
           <div className="featured--name">{item.original_name}</div>
           <div className="featured--info">
-            <div className="featured--points">{item.vote_average} pontos</div>
+            <div className="featured--points">
+              {item.vote_average.toFixed(1)} pontos
+            </div>
             <div className="featured--year">
               {firstDate ? firstDate.getFullYear() : "N/A"}
             </div>
