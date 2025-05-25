@@ -21,11 +21,9 @@ export const Home: React.FC = () => {
       const list = await tmdbService.getHomeList();
       setMovieList(list);
 
-      // Escolhe uma categoria aleatória
       const randomCategoryIndex = Math.floor(Math.random() * list.length);
       const category = list[randomCategoryIndex];
 
-      // Escolhe um item aleatório dentro da categoria
       if (category.items.results.length > 0) {
         const randomItemIndex = Math.floor(
           Math.random() * category.items.results.length
