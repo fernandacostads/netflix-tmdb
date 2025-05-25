@@ -21,14 +21,23 @@ export const Home: React.FC = () => {
       const list = await tmdbService.getHomeList();
       setMovieList(list);
 
-      const originals = list.find((category) => category.slug === "originals");
-      if (originals?.items.results) {
-        const randomIndex = Math.floor(
-          Math.random() * originals.items.results.length
+      // Escolhe uma categoria aleatória
+      const randomCategoryIndex = Math.floor(Math.random() * list.length);
+      const category = list[randomCategoryIndex];
+
+      // Escolhe um item aleatório dentro da categoria
+      if (category.items.results.length > 0) {
+        const randomItemIndex = Math.floor(
+          Math.random() * category.items.results.length
         );
-        const chosen = originals.items.results[randomIndex];
-        const chosenInfo = await tmdbService.getMovieInfo(chosen.id, "tv");
-        if (chosenInfo && chosenInfo.original_name) {
+        const chosen = category.items.results[randomItemIndex];
+
+        const chosenInfo = await tmdbService.getMovieInfo(
+          chosen.id,
+          chosen.media_type === "tv" ? "tv" : "movie"
+        );
+
+        if (chosenInfo?.original_name) {
           setFeaturedData(chosenInfo);
         } else {
           setFeaturedData(null);
