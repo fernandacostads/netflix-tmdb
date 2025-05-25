@@ -1,5 +1,4 @@
-lists {
-  /* -150 */
+.lists {
   margin-top: -70px;
 }
 
@@ -7,6 +6,7 @@ footer {
   margin: 50px;
   text-align: center;
 }
+
 .loading {
   position: fixed;
   left: 0;

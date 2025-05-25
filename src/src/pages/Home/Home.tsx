@@ -22,7 +22,7 @@ export const Home: React.FC = () => {
       setMovieList(list);
 
       const originals = list.find((category) => category.slug === "originals");
-      if (originals && originals.items.results.length > 0) {
+      if (originals?.items.results) {
         const randomIndex = Math.floor(
           Math.random() * originals.items.results.length
         );
@@ -80,7 +80,7 @@ export const Home: React.FC = () => {
       {isLoading && (
         <div className="loading">
           <img
-            src="https://www.filmelier.com/pt/br/news/wp-content/uploads/2020/03/netflix-loading.gif"
+            src="https://i.gifer.com/origin/36/36527397c208b977fa3ef21f68c0f7b2_w200.gif"
             alt="Carregando"
           />
         </div>
