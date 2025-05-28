@@ -4,8 +4,10 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
 import type { MovieRowProps } from "./MovieRow.types";
+import { useNavigate } from "react-router-dom";
 
-export const MovieRow: React.FC<MovieRowProps> = ({ title, items }) => {
+export const MovieRow: React.FC<MovieRowProps> = ({ title, items, type }) => {
+  const navigate = useNavigate();
   const [scrollX, setScrollX] = useState(0);
 
   const handleLeftArrow = () => {
@@ -23,6 +25,10 @@ export const MovieRow: React.FC<MovieRowProps> = ({ title, items }) => {
       x = window.innerWidth - listW - 60;
     }
     setScrollX(x);
+  };
+
+  const handleClick = (id: number) => {
+    navigate(`/details/${type}/${id}`);
   };
 
   return (
@@ -51,7 +57,11 @@ export const MovieRow: React.FC<MovieRowProps> = ({ title, items }) => {
                 item.original_name ||
                 "Título não disponível";
               return (
-                <div key={key} className="movieRow--item">
+                <div
+                  key={key}
+                  className="movieRow--item"
+                  onClick={() => handleClick(item.id)}
+                >
                   <img
                     src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
                     alt={title}

@@ -69,7 +69,12 @@ export const Home: React.FC = () => {
 
       <section className="lists">
         {movieList.map(({ slug, title, items }) => (
-          <MovieRow key={slug} title={title} items={items} />
+          <MovieRow
+            key={slug}
+            title={title}
+            items={items}
+            type={slug === "originals" ? "tv" : "movie"}
+          />
         ))}
       </section>
 

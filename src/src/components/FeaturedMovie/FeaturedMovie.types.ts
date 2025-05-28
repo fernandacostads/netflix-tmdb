@@ -6,6 +6,7 @@ export interface Genre {
 export interface FeaturedMovieItem {
   id: number;
   original_name: string;
+  original_title: string;
   backdrop_path: string;
   vote_average: number;
   first_air_date: string;

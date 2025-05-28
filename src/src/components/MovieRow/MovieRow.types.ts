@@ -10,5 +10,13 @@ export interface Items {
 
 export interface MovieRowProps {
   title: string;
-  items: Items;
+  items: {
+    results: {
+      id: number;
+      poster_path: string;
+      original_title?: string;
+      original_name?: string;
+    }[];
+  };
+  type: "movie" | "tv";
 }
