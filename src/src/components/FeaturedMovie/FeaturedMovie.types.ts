@@ -10,6 +10,7 @@ export interface FeaturedMovieItem {
   backdrop_path: string;
   vote_average: number;
   first_air_date: string;
+  release_date: string;
   number_of_seasons: number;
   overview?: string;
   genres?: Genre[];
